@@ -14,8 +14,7 @@ CUDA 10 is for 10xx, 16xx and 20xx series cards
 
 ## How can I add backup pools?
 Just add more pool sections (-o <pool info>) to your .bat file.
-Example:
-```t-rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
+Example: ```t-rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
 
 ## How can I run T-Rex as an administrator?
 There are several methods, but the most common way is to right click the t-rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator". Then click OK.
