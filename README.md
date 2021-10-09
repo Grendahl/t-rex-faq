@@ -85,7 +85,7 @@ That's the percentage of rejected shares. This is often an issue with your OC se
 
 ### OR
 Create a bat file in your t-rex directory, paste this code into it, run it, and use the generated key in your .bat/config file.
-```@echo off
+`<@echo off
 set /p password=Choose a password for your T-Rex api-key:
 cls
 echo Your api-key will be shown in a new window.
@@ -95,7 +95,7 @@ echo.
 echo.
 pause
 start t-rex.exe --api-generate-key %password%
-exit```
+exit>`
 
 ## How do I use an API Key once I've created it?
 ### .bat file
