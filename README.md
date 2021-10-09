@@ -229,14 +229,12 @@ pause
 curl -s "http://IP_OF_RIG_HERE:4067/control?sid=`curl -s 'http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE'|cut -f4 -d'"'`&pause=true"
 ```
 
-## I'm getting an error 6:
-Error 6 usually points to a driver problem.
+## I'm getting a Code 6:
+Code 6 memory tweak errors usually points to a driver problem.
                                                                                                                                                   
 * Use something like DDU (DisplayDriverUninstaller) to fully remove all Nvidia drivers
 * Restart the system 
 * Install the new driver directly from the Nvidia website
 * Restart the system again
                                                                                                                                                   
-                                                                                                                                                  
-                                                                                                                                                  
-                                                                                                                                                  
+Code 6 BusID errors almost always point to a power/riser issue.
