@@ -103,7 +103,6 @@ start t-rex.exe --api-generate-key %password%
 exit
 ```
 
-
 ## How do I use an API Key once I've created it?
 ### .bat file
 Add ```--api-key YourLongApiKeyGoesHere``` to your arguments, save, and run. 
@@ -136,6 +135,15 @@ The two exceptions to this rule are:
 * The RTX 3090 is not LHR
 * If you have a Rev.1 3060 with the 470.05 driver on Windows it will not detect as LHR.
 You can use GPU-Z from TechPowerUp to see if your card has a LHR GPU, by looking in the GPU field of the main tab of the application.
+
+## What is LHR unlock dual mining mode?
+You can now mine ETH (~30% of full speed) and other coins (~70%) simultaneously with LHR cards using their full potential.
+Available combinations along with memory requirements:
+* ETH+ERGO (8GB+)
+* ETH+RVN (8GB+ on linux, 10GB+ on windows)
+* ETH+CFX (10GB+)
+See https://github.com/trexminer/T-Rex/wiki/LHR on how to set it up.
+WebUI is not updated yet to reflect second algo stats in dual mode, but will be in future.
 
 ## Why are some of my config.json settings not working?
 If you specify any commands in your batch file aside from --config conf.json you will not be able to change those you do specify beyond that.
