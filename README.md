@@ -5,6 +5,10 @@
 Before you can mine, you need a crypto wallet. Metamask is easy to use and works in your browser and on your phone: https://metamask.io/
 The simplest way to get started is to edit one of the ethereum .bat files in the t-rex folder and replace the address in there with the receive address from your wallet. Then, save and run the .bat file to start t-rex.
 
+## What should I mine?
+Generally speaking, you should mind the most profitable coin(s) available to you at the time. 
+Visit https://www.whattomine.com/ and plug in your numbers to see what makes sense for you.
+
 ## Been mining for hours now, not seeing anything in my wallet, is that normal?
 Yes, that is normal. Depending on your hashrate, it will take you a few days or even weeks before you hit the minimum payout amount and the pool sends it to your wallet. Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools like ethermine.org have lower minimums, but the payout is on a different layer than mainline ethereum, so there's more work for you to do to get your profits.
 
