@@ -19,6 +19,7 @@ Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools 
 
 ## What CUDA version should I use?
 CUDA 11 is for 30xx series cards (3060/70/80/90)
+
 CUDA 10 is for 10xx, 16xx and 20xx series cards 
 
 ## Where can I find OC (overclocking) settings for my GPU?
