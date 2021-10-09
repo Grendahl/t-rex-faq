@@ -2,7 +2,7 @@
 
 
 ## How do I start mining?
-Before you can mine, you need a crypto wallet. [Metamask](http://metamask.io) is easy to use and works in your browser and on your phone.
+Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) is easy to use and works in your browser and on your phone.
 
 The next thing you will need is a pool. There are several example .bat files in your t-rex folder that connect to reputable mining pools.
 
@@ -10,7 +10,7 @@ The simplest way to get started is to edit one of the ethereum .bat files in the
 
 ## What should I mine?
 Generally speaking, you should mind the most profitable coin(s) available to you at the time. 
-Visit https://www.whattomine.com/ and plug in your numbers to see what makes sense for you.
+Visit [WhatToMine](https://www.whattomine.com/) and plug in your numbers to see what makes sense for you.
 
 ## Been mining for hours now, not seeing anything in my wallet, is that normal?
 Yes, that is normal. Depending on your hashrate, it will take you a few days or even weeks before you hit the minimum payout amount and the pool sends it to your wallet. 
@@ -21,6 +21,11 @@ Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools 
 CUDA 11 is for 30xx series cards (3060/70/80/90)
 CUDA 10 is for 10xx, 16xx and 20xx series cards 
 
+## Where can I find OC (overclocking) settings for my GPU?
+Visit [WhatToMine](https://www.whattomine.com/) and move your mouse over your graphics card. A tooltip will appear showing some settings that should get you started.
+
+Note, when there are two memory values listed, the lower one is for Windows, and the higher one is for Linux. Do not use a linux memory setting in Windows...
+
 ## How can I add backup pools?
 Just add more pool sections (-o <pool info>) to your .bat file.
 Example: ```t-rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
@@ -28,7 +33,7 @@ Example: ```t-rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o strat
 ## How can I run T-Rex as an administrator?
 There are several methods, but the most common way is to right click the t-rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator". Then click OK.
 
-## Where can I see the graph of my miner?
+## Where can I see WebUI for my miner?
 Open http://127.0.0.1:4067/ in a web browser on the mining machine.
 
 ## What do the lines on the graph mean?
@@ -52,7 +57,7 @@ Yes, it can increase the number of stale shares your miner submits, especially i
   
 If invalid/rejected shares are a concern, you can set the --validate-shares option and look at the stats for few days.
 
-  If you have no invalid shares then your GPUs are stable and there is no need to use the share validation argument, since it is primarily intended to determine which of your gpus are not stable or working well. 
+If you have no invalid shares then your GPUs are stable and there is no need to use the share validation argument, since it is primarily intended to determine which of your gpus are not stable or working well. 
 
 ## What are error codes 15 and 999?
 These errors usually indicate hardware related problems (risers, power supply, cabling etc.), see more details at: https://www.cryptoprofi.info/?p=5519
@@ -84,16 +89,23 @@ Right click the downloaded zip file, click on "CRC SHA", then select "SHA-256" t
 
 ## What does the red (!) mean?
 After generating a DAG the miner computes its checksum. (!) next to it indicates that the checksum is invalid for the current epoch, and the DAG buffer is corrupted. 
-  The most common cause for this is excessive memory overclock. If the DAG buffer is corrupted, the affected GPU may produce invalid shares which will reduce your effective hashrate. Sometimes invalid shares percentage is very low and can be ignored, otherwise dial memory overclock down until (!) no longer appears.
+  
+The most common cause for this is excessive memory overclock. If the DAG buffer is corrupted, the affected GPU may produce invalid shares which will reduce your effective hashrate. 
+  
+Sometimes invalid shares percentage is very low and can be ignored, otherwise lower your memory overclock until (!) no longer appears.
 
 ## High CPU usage
-If you experience high CPU usage by T-Rex miner process on Windows and your NVIDIA drivers are 471.11 or newer, the most likely cause is the "Hardware-accelerated GPU Scheduling" feature. To disable it, go to Start -> Settings -> Display -> Graphics settings, and turn it off.
+If you experience high CPU usage by T-Rex miner process on Windows and your NVIDIA drivers are 471.11 or newer, the most likely cause is the "Hardware-accelerated GPU Scheduling" feature. 
+  
+To disable it, go to Start -> Settings -> Display -> Graphics settings, and turn it off.
 
 ## Why can't I save settings in the web gui?
 You probably don't have a config file in the t-rex directory, or you forgot to launch t-rex with the -c (--config) option.
 
 ## What are the red numbers behind the R:?
-That's the percentage of rejected shares. This is often an issue with your OC settings being too aggressive, causing the card to be unstable.
+That's the percentage of rejected shares. 
+  
+This is often an issue with your OC settings being too aggressive, causing the card to be unstable.
 
 ## How do I create an API Key?
 --api-generate-key does not automatically append/edit the JSON at the current moment, in the meanwhile we have to do it manually.
