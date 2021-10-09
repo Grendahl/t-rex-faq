@@ -85,7 +85,8 @@ That's the percentage of rejected shares. This is often an issue with your OC se
 
 ### OR
 Create a bat file in your t-rex directory, paste this code into it, run it, and use the generated key in your .bat/config file.
-`<@echo off
+```
+<@echo off
 set /p password=Choose a password for your T-Rex api-key:
 cls
 echo Your api-key will be shown in a new window.
@@ -95,7 +96,9 @@ echo.
 echo.
 pause
 start t-rex.exe --api-generate-key %password%
-exit>`
+exit
+```
+
 
 ## How do I use an API Key once I've created it?
 ### .bat file
@@ -144,24 +147,32 @@ In the WebUI, click the name of the GPU at the bottom of the main page, and then
 ### Other options:
 #### Windows command (CMD):
 Open a command window and use this command: (use your own IP and password)
-```for /f usebackq^ tokens^=4^ delims^=^" %a in (`"curl -s http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE"`) do @echo %a && curl "http://IP_OF_RIG_HERE:4067/control?sid=%a&pause=true"```
+```
+for /f usebackq^ tokens^=4^ delims^=^" %a in (`"curl -s http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE"`) do @echo %a && curl "http://IP_OF_RIG_HERE:4067/control?sid=%a&pause=true"
+```
   
 #### Windows .bat to pause t-rex:
 Create a .bat file containing the following lines and run it:
-```:: bat to pause t-rex
+```
+:: bat to pause t-rex
 @echo off
 set /p password=Enter your T-Rex password:
 for /f usebackq^ tokens^=4^ delims^=^" %%b in (`"curl -s http://localhost:4067/login?password=%%password%%"`) do (curl -s "http://localhost:4067/control?sid=%%b&pause=true")
-pause```
+pause
+```
   
 #### Windows .bat to unpause t-rex:
 Create a .bat file containing the following lines and run it:
-```:: bat to unpause t-rex
+```
+:: bat to unpause t-rex
 @echo off
 set /p password=Enter your T-Rex password:
 for /f usebackq^ tokens^=4^ delims^=^" %%b in (`"curl -s http://localhost:4067/login?password=%%password%%"`) do (curl -s "http://localhost:4067/control?sid=%%b&pause=false")
-pause```
+pause
+```
   
 #### LINUX Bash:
-```curl -s "http://IP_OF_RIG_HERE:4067/control?sid=`curl -s 'http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE'|cut -f4 -d'"'`&pause=true"```
+```
+curl -s "http://IP_OF_RIG_HERE:4067/control?sid=`curl -s 'http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE'|cut -f4 -d'"'`&pause=true"
+```
 
