@@ -58,14 +58,17 @@ In any case, it is advisable not to use any cryptocurrency miners on the compute
 
 ## How do I verify miner authenticity?
 After you've downloaded the miner archive from the links in releases, it's advisable to verify that its checksum matches the one listed in the release message.
-### Windows:
-#### Powershell
+
+**Windows Powershell:**
 ```Get-FileHash <PATH_TO_TREX.zip> -Algorithm SHA256 | Format-List```
-#### CMD
+
+**Windows CMD:**
 ```certutil -hashfile <PATH_TO_TREX.zip> SHA256```
-#### 7-zip
+
+**Windows 7-zip:**
 Right click the downloaded zip file, click on "CRC SHA", then select "SHA-256" to get the checksum of the file
-#### Linux:
+
+**Linux:**
 ```sha256sum <PATH_TO_TREX.tar.gz>```
 
 ## What does the red (!) mean?
@@ -157,14 +160,16 @@ It only works for t-rex 0.23.0+. There was a breaking change in 0.23.0 so auto u
 In the WebUI, click the name of the GPU at the bottom of the main page, and then click the pause icon.
 
 ### Other options:
-#### Windows command (CMD):
-Open a command window and use this command: (use your own IP and password)
+**Windows command (CMD):**
+
+Open a command window and use this command (use your own IP and password)
 ```
 for /f usebackq^ tokens^=4^ delims^=^" %a in (`"curl -s http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE"`) do @echo %a && curl "http://IP_OF_RIG_HERE:4067/control?sid=%a&pause=true"
 ```
   
-#### Windows .bat to pause t-rex:
-Create a .bat file containing the following lines and run it:
+**Windows .bat to pause t-rex:**
+
+Create a .bat file containing the following lines and run it.
 ```
 :: bat to pause t-rex
 @echo off
@@ -173,8 +178,9 @@ for /f usebackq^ tokens^=4^ delims^=^" %%b in (`"curl -s http://localhost:4067/l
 pause
 ```
   
-#### Windows .bat to unpause t-rex:
-Create a .bat file containing the following lines and run it:
+**Windows .bat to unpause t-rex:**
+
+Create a .bat file containing the following lines and run it.
 ```
 :: bat to unpause t-rex
 @echo off
@@ -183,8 +189,9 @@ for /f usebackq^ tokens^=4^ delims^=^" %%b in (`"curl -s http://localhost:4067/l
 pause
 ```
   
-#### LINUX Bash:
+**LINUX Bash:**
 ```
 curl -s "http://IP_OF_RIG_HERE:4067/control?sid=`curl -s 'http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE'|cut -f4 -d'"'`&pause=true"
 ```
+
 
