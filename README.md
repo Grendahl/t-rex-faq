@@ -18,11 +18,10 @@ Yes, that is normal. Depending on your hashrate, it will take you a few days or 
 Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools like ethermine.org have lower minimums, but the payout is on a different layer than mainline ethereum, so there's more work for you to do to get your profits.
 
 ## What CUDA version should I use?
-CUDA 11 is for 30xx series cards (3060/70/80/90)
+* CUDA 11 is for 30xx series cards (3060/70/80/90)
+* CUDA 10 is for 10xx, 16xx and 20xx series cards 
 
-CUDA 10 is for 10xx, 16xx and 20xx series cards 
-
-## Where can I find OC (overclocking) settings for my GPU?
+## Where can I find OC (overclock) settings for my GPU?
 Visit [WhatToMine](https://www.whattomine.com/) and move your mouse over your graphics card. A tooltip will appear showing some settings that should get you started.
 
 Note, when there are two memory values listed, the lower one is for Windows, and the higher one is for Linux. Do not use a linux memory setting in Windows...
