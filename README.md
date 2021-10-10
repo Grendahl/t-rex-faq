@@ -20,7 +20,7 @@ Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools 
 * CUDA 11 is for 30xx series cards (3060/70/80/90)
 * CUDA 10 is for 10xx, 16xx and 20xx series cards 
 
-## Where can I find the best OC (overclock) settings for my GPU?
+## Where do I find the best OC (overclock) settings for my GPU?
 Visit [WhatToMine](https://www.whattomine.com/) and move your mouse over your graphics card. A tooltip will appear showing some settings that should get you started.
 
 Note, when there are two memory values listed, the lower one is for Windows, and the higher one is for Linux. Do not use a linux memory setting in Windows.
@@ -38,17 +38,17 @@ It's ECC memory. If it is producing errors, it has to fix them, which costs perf
 
 It's doing exactly what it should do.
 
-## How can I add backup pools?
+## How do I add backup pools?
 Just add more pool sections (-o <pool info>) to your .bat file.
 Example: ```T-Rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
 
-## How can I run T-Rex as an administrator?
+## How do I run T-Rex as an administrator?
 There are several methods, but the most common way is to right click the T-Rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator". Then click OK.
 
 ## Where can I see WebUI for my miner?
 Open http://127.0.0.1:4067/ in a web browser on the mining machine.
 
-## How can I the T-Rex WebUI from another computer or phone on my local network?
+## How do I see the T-Rex WebUI from another computer or phone on my local network?
 This is most likely due to a firewall issue. To open the default port (TCP port 4067) T-Rex uses for incoming connections, follow the instructions below.
 
 **Windows:**
