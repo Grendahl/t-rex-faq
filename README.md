@@ -31,6 +31,8 @@ The  better thing to do would be to learn how to OC for yourself, per card and a
 
 Go watch those, and follow along.
 
+If you'd like to monitor your card for errors while you perform your overclock, open a CMD window and send the command ```nvidia-smi dmon -s pucvmet``` and watch the appropriate columns for errors.
+
 ## Why does my hashrate go lower when I keep increasing my --mclock value?
 It's ECC memory. If it is producing errors, it has to fix them, which costs performance.
 
