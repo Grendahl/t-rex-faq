@@ -24,7 +24,13 @@ Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools 
 ## Where can I find OC (overclock) settings for my GPU?
 Visit [WhatToMine](https://www.whattomine.com/) and move your mouse over your graphics card. A tooltip will appear showing some settings that should get you started.
 
-Note, when there are two memory values listed, the lower one is for Windows, and the higher one is for Linux. Do not use a linux memory setting in Windows...
+Note, when there are two memory values listed, the lower one is for Windows, and the higher one is for Linux. Do not use a linux memory setting in Windows.
+
+The  better thing to do would be to learn how to OC for yourself, per card and algo combination that you're mining, and one of our discord community members has a couple **great** videos on how to do just this!
+* https://www.youtube.com/watch?v=7JGcQLgV5Gw
+* https://www.youtube.com/watch?v=0F4xxcCAJVI
+
+Go watch those, and follow along.
 
 ## How can I add backup pools?
 Just add more pool sections (-o <pool info>) to your .bat file.
