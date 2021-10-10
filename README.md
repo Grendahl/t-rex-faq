@@ -32,6 +32,11 @@ The  better thing to do would be to learn how to OC for yourself, per card and a
 
 Go watch those, and follow along.
 
+## Why does my hashrate go lower when I keep increasing my --mclock value?
+It's ECC memory. If it is producing errors, it has to fix them, which costs performance.
+
+It's doing exactly what it should do.
+
 ## How can I add backup pools?
 Just add more pool sections (-o <pool info>) to your .bat file.
 Example: ```t-rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
@@ -167,6 +172,11 @@ That all depends on the silicon your GPU has.
        
 For cards with GDDR6/6X vram, this is a good resource:
 https://www.youtube.com/watch?v=ph4_Sr8YNXI
+
+## Why can't I see memory temperatures in t-rex?
+You can only see things that the card exposes to the Nvidia driver, which is the fault of Nvidia, not T-Rex.
+
+T-Rex simply uses the dative NVAPI functions.
 
 ## How does memtweak work?
 Memory tweak mode works similar to ETHlargementPill. It is supported on Pascal GPUs with GDDR5 or GDDR5X memory only. 
