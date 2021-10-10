@@ -229,6 +229,18 @@ The two exceptions to this rule are:
 * If you have a Rev.1 3060 with the 470.05 driver on Windows it will not detect as LHR.
 You can use GPU-Z from TechPowerUp to see if your card has a LHR GPU, by looking in the GPU field of the main tab of the application.
 
+**LHR SKU Identification:**
+
+3060 models:
+* All 3060 models are LHR, no matter their SKU. (See exception above for Rev.1 cards)
+           
+3070/3080 models
+* ASUS – LHR will be marked as version 2 or higher (ex - ROG Strix GeForce RTX™ 3070 V2)
+* MSI – LHR will be marked along with the SKU (ex - 3070 GAMING TRIO PLUS 8G LHR) just like ZOTAC
+* EVGA – LHR will be marked along with the SKU as “KL” (ex - 8GB GDDR6 08G-P4-3080-KL)
+* GIGABYTE - LHR will be marked as version 2 / rev. 2.0 or higher
+* ZOTAC - LHR will be marked along with the SKU (ex - RTX 3080 Trinity LHR or ZT-A30800D-10PLHR)
+
 ## What is LHR unlock dual mining mode?
 You can now mine ETH (~30% of full speed) and other coins (~70%) simultaneously with LHR cards using their full potential.
 Available combinations along with memory requirements:
