@@ -48,7 +48,7 @@ There are several methods, but the most common way is to right click the T-Rex.e
 ## Where can I see WebUI for my miner?
 Open http://127.0.0.1:4067/ in a web browser on the mining machine.
 
-## How come I can't see the WebUI from another computer or phone connected on the local network?
+## How can I the T-Rex WebUI from another computer or phone on my local network?
 This is most likely due to a firewall issue. To open the default port (TCP port 4067) T-Rex uses for incoming connections, follow the instructions below.
 
 **Windows:**
