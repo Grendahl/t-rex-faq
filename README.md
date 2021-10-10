@@ -60,8 +60,8 @@ This is most likely due to a firewall issue. To open the default port (TCP port 
 1. Select “TCP” and “specific local ports” options.
 1. Enter 4067 in the specific local ports box and click next.
 1. Select the option “Allow the connection” and click next.
-1. Check the Domain and Private boxes, uncheck the Public box, and click next.
-1. Enter T-Rex in the Name: field and click Finish.
+1. Click next. (leave the three boxes checked)
+1. Enter T-Rex in the Name field and click Finish.
 
 **Linux:**
 1. From a terminal window do: ```sudo ufw allow from any to any port 4067 proto tcp``` 
