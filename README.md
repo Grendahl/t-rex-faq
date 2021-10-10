@@ -48,6 +48,25 @@ There are several methods, but the most common way is to right click the T-Rex.e
 ## Where can I see WebUI for my miner?
 Open http://127.0.0.1:4067/ in a web browser on the mining machine.
 
+## How come I can't see the WebUI from another computer or phone connected on the local network?
+This is most likely due to a firewall issue. To open the default port (TCP port 4067) T-Rex uses for incoming connections, follow the instructions below.
+
+**Windows:**
+1. On the miner, go to Start > Run and type firewall.cpl to open the Windows Firewall window.
+1. Click on the “Advanced Settings” link on the left pane. The Windows Firewall with Advanced security window opens.
+1. Click on the “Inbound Rules” option.
+1. On the right pane, click on “New rule”.
+1. Under “Rule Type” select the option “Port” and click next.
+1. Select “TCP” and “specific local ports” options.
+1. Enter 4067 in the specific local ports box and click next.
+1. Select the option “Allow the connection” and click next.
+1. Check the Domain and Private boxes, uncheck the Public box, and click next.
+1. Enter T-Rex in the Name: field and click Finish.
+
+**Linux:**
+1. From a terminal window do: ```sudo ufw allow from any to any port 4067 proto tcp``` 
+1. To verify the rule was added correctly, do: ```sudo ufw status```
+
 ## What do the lines on the graph mean?
 The newer versions of T-Rex have both a mouseover tooltip and a key at the bottom to show what the colors mean.
   
