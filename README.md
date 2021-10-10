@@ -193,7 +193,7 @@ If you specify any commands in your batch file aside from --config conf.json you
 ie: ```--config conf.json --api-key XXXX``` will allow you to change every value and save them to conf.json except for a new API key when you try to change the password via the WebUI. 
 
 ## Why does --autoupdate not work?
-It only works for t-rex 0.23.0+. There was a breaking change in 0.23.0 so auto updates was disabled for any version older than that.
+It only works for t-rex 0.23.1+. There was a breaking change in 0.23.0 so auto updates was disabled for any version older than that.
        
 **IMPORTANT!** If you are running a version older than 0.23.0, be sure to remove your OC settings before updating! The cards will be numered/logged into a different order so your OCs will end up on different cards than you intend. You can reapply them after update has been completed.
 
