@@ -4,13 +4,12 @@
 ## How do I start mining?
 Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) is easy to use and works in your browser and on your phone.
 
-The next thing you will need is a pool. There are several example .bat files in your t-rex folder that connect to reputable mining pools.
+The next thing you will need is a pool. There are several example .bat files in your T-Rex folder that connect to reputable mining pools.
 
-The simplest way to get started is to edit one of the ethereum .bat files in the t-rex folder and replace the address in there with the receive address from your wallet. Then, save and run the .bat file to start t-rex.
+The simplest way to get started is to edit one of the ethereum .bat files in the T-Rex folder and replace the address in there with the receive address from your wallet. Then, save and run the .bat file to start T-Rex.
 
 ## What should I mine?
-Generally speaking, you should mind the most profitable coin(s) available to you at the time. 
-Visit [WhatToMine](https://www.whattomine.com/) and plug in your numbers to see what makes sense for you.
+Generally speaking, you should mind the most profitable coin(s) available to you at the time. Visit [WhatToMine](https://www.whattomine.com/) and plug in your numbers to see what makes sense for you.
 
 ## I have been mining for hours now, but there is nothing in my wallet, is that normal?
 Yes, that is normal. Depending on your hashrate, it will take you a few days or even weeks before you hit the minimum payout amount and the pool sends it to your wallet. 
@@ -21,7 +20,7 @@ Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools 
 * CUDA 11 is for 30xx series cards (3060/70/80/90)
 * CUDA 10 is for 10xx, 16xx and 20xx series cards 
 
-## Where can I find OC (overclock) settings for my GPU?
+## Where can I find the best OC (overclock) settings for my GPU?
 Visit [WhatToMine](https://www.whattomine.com/) and move your mouse over your graphics card. A tooltip will appear showing some settings that should get you started.
 
 Note, when there are two memory values listed, the lower one is for Windows, and the higher one is for Linux. Do not use a linux memory setting in Windows.
@@ -39,26 +38,26 @@ It's doing exactly what it should do.
 
 ## How can I add backup pools?
 Just add more pool sections (-o <pool info>) to your .bat file.
-Example: ```t-rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
+Example: ```T-Rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
 
 ## How can I run T-Rex as an administrator?
-There are several methods, but the most common way is to right click the t-rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator". Then click OK.
+There are several methods, but the most common way is to right click the T-Rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator". Then click OK.
 
 ## Where can I see WebUI for my miner?
 Open http://127.0.0.1:4067/ in a web browser on the mining machine.
 
 ## What do the lines on the graph mean?
-The newer versions of t-rex have both a mouseover tooltip and a key at the bottom to show what the colors mean.
+The newer versions of T-Rex have both a mouseover tooltip and a key at the bottom to show what the colors mean.
   
 In older versions that don't have these features, grey is power, blue is hashrate, red is average power, and green is average hashrate.
 
 ## What intensity or kernel should I use?
-T-Rex will run a benchmark when it's started and pick the best settings to run at. If you are using an external application to overclock your card(s), make sure you apply your overclock settings before you start t-rex. If you're using T-Rex to overclock, it will do so before benchmarking.
+T-Rex will run a benchmark when it's started and pick the best settings to run at. If you are using an external application to overclock your card(s), make sure you apply your overclock settings before you start T-Rex. If you're using T-Rex to overclock, it will do so before benchmarking.
   
-If you experience hashrate drop between releases make sure that the miner selects same kernel. If kernel differs for the new version then set proper kernel manually by adding a --kernel parameter to the t-rex startup arguments.
+If you experience hashrate drop between releases make sure that the miner selects same kernel. If kernel differs for the new version then set proper kernel manually by adding a --kernel parameter to the T-Rex startup arguments.
 
 ## How do I run a benchmark?
-For Ethereum, you can start T-Rex with ```t-rex.exe -a ethash -B --benchmark-epoch 393``` and it will give you more reports on how fast it's working. This is great for tuning your cards. 
+For Ethereum, you can start T-Rex with ```T-Rex.exe -a ethash -B --benchmark-epoch 393``` and it will give you more reports on how fast it's working. This is great for tuning your cards. 
 
 ## What is the difference between --lock-cclock and --cclock?
 
@@ -83,7 +82,7 @@ These errors usually indicate hardware related problems (risers, power supply, c
 ## What is the "instance wasn't validated" error? 
 Right after the miner start there must be an internet connection to the developers server for miner validation. If you set firewall rules to restrict outgoing connections this can be the reason of the problem. 
 
-## Antivirus alerts (miner shows t-rex.exe not found error in red)
+## Antivirus alerts (miner shows T-Rex.exe not found error in red)
 In order to protect the miner from reverse engineering attacks, the binaries are packed using a third-party software which mangles the original machine code. As a result, some antivirus engines may detect certain signatures (false positives) within the executable that are similar to those that real viruses have. 
   
 Binaries which are taken from the official site https://trex-miner.com/ are completely safe. 
@@ -118,7 +117,7 @@ If you experience high CPU usage by T-Rex miner process on Windows and your NVID
 To disable it, go to Start -> Settings -> Display -> Graphics settings, and turn it off.
 
 ## Why can't I save settings in the web gui?
-You probably don't have a config file in the t-rex directory, or you forgot to launch t-rex with the -c (--config) option.
+You probably don't have a config file in the T-Rex directory, or you forgot to launch T-Rex with the -c (--config) option.
 
 ## What are the red numbers behind the R:?
 That's the percentage of rejected shares. 
@@ -127,13 +126,13 @@ This is often an issue with your OC settings being too aggressive, causing the c
 
 ## How do I create an API Key?
 --api-generate-key does not automatically append/edit the JSON at the current moment, in the meanwhile we have to do it manually.
-1. Open a CMD window and navigate to the t-rex directory.
-1. enter: ```t-rex.exe --api-generate-key YourDesiredWebGuiPassword```
+1. Open a CMD window and navigate to the T-Rex directory.
+1. enter: ```T-Rex.exe --api-generate-key YourDesiredWebGuiPassword```
 1. Another CMD window will open with your API key in it. Copy this key and use it in your .bat or config file as the value for the --api-key setting.
-1. Run t-rex as usual, navigate to http://127.0.0.1:4067, enter the password you used to create the key, and enjoy!
+1. Run T-Rex as usual, navigate to http://127.0.0.1:4067, enter the password you used to create the key, and enjoy!
 
 ### OR
-Create a bat file in your t-rex directory, paste this code into it, run it, and use the generated key in your .bat/config file.
+Create a bat file in your T-Rex directory, paste this code into it, run it, and use the generated key in your .bat/config file.
 ```
 <@echo off
 set /p password=Choose a password for your T-Rex api-key:
@@ -144,7 +143,7 @@ echo Once it has been copied you may close that window.
 echo.
 echo.
 pause
-start t-rex.exe --api-generate-key %password%
+start T-Rex.exe --api-generate-key %password%
 exit
 ```
 
@@ -165,18 +164,32 @@ Since it's only 30% of eth, we've set the fees to whatever they are for the seco
 
 Initially the idea was to set them to 1% but that opens up a "hack" where you set LHR 10 and pretty much mine erg or cfx with 1% instead of the usual 2% set for those algos. The fees may be reviewed (= decreased) in future releases however.
 
-As for the way they are taken, it's no different to single mode, t-rex mines the dev fee to the dev wallet during dev fee sessions in dual mode too.
+As for the way they are taken, it's no different to single mode, T-Rex mines the dev fee to the dev wallet during dev fee sessions in dual mode too.
 
-## What temps should I be running on my gpu/vram?
-That all depends on the silicon your GPU has.
-       
-For cards with GDDR6/6X vram, this is a good resource:
-https://www.youtube.com/watch?v=ph4_Sr8YNXI
+## What do the temperature numbers in T-Rex mean?
+This depends on the GPU, and what it exposes to the Nvidia driver.
 
-## Why can't I see memory temperatures in t-rex?
+T-Rex reports what it can see, in this order of preference:
+* GPU and memory temp
+* GPU and hotspot temp
+* GPU temp only
+
+Do not get confused between hotspot and memory temps. Hotspot temp is the highest temperature seen on the GPU die, and has nothing to do with memory temps.
+
+GDDR6 has no temp sensors, and therefore there is no way for any tool to read the temps, while GDDR6X does have temp sensors, so those cards will show GPU and memory temps in T-Rex.
+
+## Why can't I see memory temperatures in T-Rex?
 You can only see things that the card exposes to the Nvidia driver, which is the fault of Nvidia, not T-Rex.
 
 T-Rex simply uses the dative NVAPI functions.
+
+## What temps should I be running on my gpu/vram?
+That all depends on the silicon your GPU has.
+
+For cards with GDDR6/6X vram, it is generally recommended to stay below 95C on memory junction temps which is shown as the second temp value in T-Rex.
+
+For cards with GDDR6X vram, this is a good resource:
+https://www.youtube.com/watch?v=ph4_Sr8YNXI
 
 ## How does memtweak work?
 Memory tweak mode works similar to ETHlargementPill. It is supported on Pascal GPUs with GDDR5 or GDDR5X memory only. 
@@ -210,7 +223,7 @@ If you specify any commands in your batch file aside from --config conf.json you
 ie: ```--config conf.json --api-key XXXX``` will allow you to change every value and save them to conf.json except for a new API key when you try to change the password via the WebUI. 
 
 ## Why does --autoupdate not work?
-It only works for t-rex 0.23.1+. There was a breaking change in 0.23.0 so auto updates was disabled for any version older than that.
+It only works for T-Rex 0.23.1+. There was a breaking change in 0.23.0 so auto updates was disabled for any version older than that.
        
 **IMPORTANT!** If you are running a version older than 0.23.0, be sure to remove your OC settings before updating! The cards will be numered/logged into a different order so your OCs will end up on different cards than you intend. You can reapply them after update has been completed.
 
@@ -225,22 +238,22 @@ Open a command window and use this command (use your own IP and password)
 for /f usebackq^ tokens^=4^ delims^=^" %a in (`"curl -s http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE"`) do @echo %a && curl "http://IP_OF_RIG_HERE:4067/control?sid=%a&pause=true"
 ```
   
-**Windows .bat to pause t-rex:**
+**Windows .bat to pause T-Rex:**
 
 Create a .bat file containing the following lines and run it.
 ```
-:: bat to pause t-rex
+:: bat to pause T-Rex
 @echo off
 set /p password=Enter your T-Rex password:
 for /f usebackq^ tokens^=4^ delims^=^" %%b in (`"curl -s http://localhost:4067/login?password=%%password%%"`) do (curl -s "http://localhost:4067/control?sid=%%b&pause=true")
 pause
 ```
   
-**Windows .bat to unpause t-rex:**
+**Windows .bat to unpause T-Rex:**
 
 Create a .bat file containing the following lines and run it.
 ```
-:: bat to unpause t-rex
+:: bat to unpause T-Rex
 @echo off
 set /p password=Enter your T-Rex password:
 for /f usebackq^ tokens^=4^ delims^=^" %%b in (`"curl -s http://localhost:4067/login?password=%%password%%"`) do (curl -s "http://localhost:4067/control?sid=%%b&pause=false")
