@@ -55,6 +55,13 @@ If you experience hashrate drop between releases make sure that the miner select
 ## How do I run a benchmark?
 For Ethereum, you can start T-Rex with ```t-rex.exe -a ethash -B --benchmark-epoch 393``` and it will give you more reports on how fast it's working. This is great for tuning your cards. 
 
+## What is the difference between --lock-cclock and --cclock?
+
+* --lock-cclock sets the core clock to an absolute value
+* --cclock is an offset (+/-) from what the clock runs at normally 
+* --lock-cclock manages power to keep the core clock where you set it
+* --cclock does not manage power, so you would need to use the --pl setting to do that
+
 ## Windows says my GPU usage is very low, is this normal?
 Yes, T-Rex uses CUDA to work with your GPU so Windows task manager doesn't properly report useage.
 
