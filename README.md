@@ -311,3 +311,16 @@ Code 6 memory tweak errors usually points to a driver problem.
 * Restart the system again
                                                                                                                                                   
 Code 6 BusID errors almost always point to a power/riser issue.
+
+## How do I set extra parameters in HiveOS?
+HiveOS launches T-Rex using JSON configuration files, so all extra parameters should be set accordingly.
+     
+A few examples:
+
+* ```--lhr-tune 72,0,30``` becomes ```"lhr-tune": "72,0,30"```
+* ```--validate-shares``` becomes ```"validate-shares": true``` Same with all boolean parameters that don't expect values if you specify them in cmd line
+* ```-i 25``` becomes ```"intensity": "25"```
+       
+**Note:** 
+There are no short names in JSON, you need to use the full name for one-letter parameters like -i ("intensity"), -N ("hashrate-avr") etc.
+       
