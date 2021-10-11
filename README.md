@@ -6,7 +6,7 @@ Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) 
 
 The next thing you will need is a pool. There are several example .bat files in your T-Rex folder that connect to reputable mining pools.
 
-The simplest way to get started is to edit one of the ethereum .bat files in the T-Rex folder and replace the address in there with the receive address from your wallet. Then, save and run the .bat file to start T-Rex.
+The simplest way to get started is to edit one of the ethereum .bat files in the T-Rex folder and replace the address in there with the receive address from your wallet for the currency you are mining. Then, save and run the .bat file to start T-Rex.
 
 ## What should I mine?
 Generally speaking, you should mind the most profitable coin(s) available to you at the time. Visit [WhatToMine](https://www.whattomine.com/) and plug in your numbers to see what makes sense for you.
@@ -14,7 +14,7 @@ Generally speaking, you should mind the most profitable coin(s) available to you
 ## I have been mining for hours now, but there is nothing in my wallet, is that normal?
 Yes, that is normal. Depending on your hashrate, it will take you a few days or even weeks before you hit the minimum payout amount and the pool sends it to your wallet. 
 
-Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools like ethermine.org have lower minimums, but the payout is on a different layer than mainline ethereum, so there's more work for you to do to get your profits.
+Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools like [Ethermine](https://ethermine.org) have lower minimums, but the payout is on a different layer than mainline ethereum, so there's more work for you to do to get your profits.
 
 ## What CUDA version should I use?
 * CUDA 11 is for 30xx series cards (3060/70/80/90)
@@ -25,7 +25,7 @@ Visit [WhatToMine](https://www.whattomine.com/) and move your mouse over your gr
 
 Note, when there are two memory values listed, the lower one is for Windows, and the higher one is for Linux. Do not use a linux memory setting in Windows.
 
-The  better thing to do would be to learn how to OC for yourself, per card and algo combination that you're mining, and one of our discord community members has a couple **great** videos on how to do just this!
+The  best thing to do is to learn how to OC for yourself, per card and algo combination that you're mining, and one of our discord community members has a couple **great** videos on how to do just this!
 * https://www.youtube.com/watch?v=7JGcQLgV5Gw
 * https://www.youtube.com/watch?v=0F4xxcCAJVI
 
@@ -36,20 +36,24 @@ If you'd like to monitor your card for errors while you perform your overclock, 
 ## Why does my hashrate go lower when I keep increasing my --mclock value?
 It's ECC memory. If it is producing errors, it has to fix them, which costs performance.
 
-It's doing exactly what it should do.
+It's doing exactly what it should do. You can see the errors by opening a CMD window and send the command ```nvidia-smi dmon -s pucvmet``` to verify.
 
 ## How do I add backup pools?
 Just add more pool sections (-o <pool info>) to your .bat file.
 Example: ```T-Rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
+  
+Alternatively, you can add them in the WebUI if you are using a config file.
 
 ## How do I run T-Rex as an administrator?
-There are several methods, but the most common way is to right click the T-Rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator". Then click OK.
+There are several methods, but the most common way is to right click the T-Rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator", then click OK.
 
 ## Where can I see WebUI for my miner?
-Open http://127.0.0.1:4067/ in a web browser on the mining machine.
+Open http://127.0.0.1:4067/ (or [localhost](http://localhost:4067)) in a web browser on the mining machine.
 
 ## How do I see the T-Rex WebUI from another computer or phone on my local network?
-This is most likely due to a firewall issue. To open the default port (TCP port 4067) T-Rex uses for incoming connections, follow the instructions below.
+If you cannot see your T-Rex WebUI from another computer on your local networ, it is most likely due to a firewall issue on the computer doing the mining. 
+  
+To open the default port (TCP port 4067) T-Rex uses for incoming connections, follow the instructions below.
 
 **Windows:**
 1. On the miner, go to Start > Run and type firewall.cpl to open the Windows Firewall window.
