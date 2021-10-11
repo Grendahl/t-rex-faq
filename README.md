@@ -303,14 +303,16 @@ curl -s "http://IP_OF_RIG_HERE:4067/control?sid=`curl -s 'http://IP_OF_RIG_HERE:
 ```
 
 ## I'm getting a Code 6:
-Code 6 memory tweak errors usually points to a driver problem.
+-6 translates into the following NVAPI error code: ```NVAPI_NVIDIA_DEVICE_NOT_FOUND | No NVIDIA display driver, or NVIDIA GPU driving a display, was found.```
+
+**Code 6 memory tweak errors usually points to a driver problem.**
                                                                                                                                                   
 * Use something like DDU (DisplayDriverUninstaller) to fully remove all Nvidia drivers
 * Restart the system 
 * Install the new driver directly from the Nvidia website
 * Restart the system again
                                                                                                                                                   
-Code 6 BusID errors almost always point to a power/riser issue.
+**Code 6 BusID errors almost always point to a power/riser issue.**
 
 ## How do I set extra parameters in HiveOS?
 HiveOS launches T-Rex using JSON configuration files, so all extra parameters should be set accordingly.
