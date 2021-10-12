@@ -2,36 +2,42 @@
 
 
 ## How do I start mining?
-Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) is easy to use and works in your browser and on your phone.
+Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) is easy to setup/use and works in your browser and on your phone for **ETH.**
 
-The next thing you will need is a pool. There are several example .bat files in your T-Rex folder that connect to reputable mining pools.
+If you are mining *another coin* you will need a multi-coin or coin-specific wallet like [Exodus](https://www.exodus.com/) which has similar ease of use like Metamask.
 
-The simplest way to get started is to edit one of the ethereum .bat files in the T-Rex folder and replace the address in there with the receive address from your wallet for the currency you are mining. Then, save and run the .bat file to start T-Rex.
+The next thing you will need is a pool. There are several example .bat/.sh files in your T-Rex folder that connect to reputable mining pools.
+
+The simplest way to get started is to edit one of the ethereum .bat/.sh files in the T-Rex folder and replace the developer wallet address in there with the receive address from your wallet for the currency you are mining. Then, save and run the .bat/.sh file to start T-Rex.
 
 ## What should I mine?
-Generally speaking, you should mind the most profitable coin(s) available to you at the time. Visit [WhatToMine](https://www.whattomine.com/) and plug in your numbers to see what makes sense for you.
+Generally speaking, you should mine the most profitable coin(s) available to you at the time. Visit [WhatToMine](https://www.whattomine.com/) and plug in your numbers to see what makes sense for you.
 
 ## I have been mining for hours now, but there is nothing in my wallet, is that normal?
 Yes, that is normal. Depending on your hashrate, it will take you a few days or even weeks before you hit the minimum payout amount and the pool sends it to your wallet. 
 
 Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools like [Ethermine](https://ethermine.org) have lower minimums, but the payout is on a different layer than mainline ethereum, so there's more work for you to do to get your profits.
 
+More pools are allowing the user to change their minimum payout amount now. For example [Flexpool](https://www.flexpool.io/) allows the user to change this once you verify the public IP of one of your miners [Screenshot](https://i.imgur.com/iogZl1b.png).
+
 ## What CUDA version should I use?
-* CUDA 11 is for 30xx series cards (3060/70/80/90)
-* CUDA 10 is for 10xx, 16xx and 20xx series cards 
+* CUDA 11.x (and 12.x when released) is for 30xx series cards (3060/70/80/90)
+* CUDA 10.x (and 11.x) is for 10xx, 16xx and 20xx series cards 
+
+* CUDA is forward-compatible with the next version since CUDA 10.x [See page 7](https://docs.nvidia.com/pdf/CUDA_Compatibility.pdf)
 
 ## Where do I find the best OC (overclock) settings for my GPU?
-Visit [WhatToMine](https://www.whattomine.com/) and move your mouse over your graphics card. A tooltip will appear showing some settings that should get you started.
+Visit [WhatToMine](https://www.whattomine.com/) and move your mouse over your graphics card. A tooltip will appear showing some sample overclock settings that should get you started.
 
-Note, when there are two memory values listed, the lower one is for Windows, and the higher one is for Linux. Do not use a linux memory setting in Windows.
+Note, when there are two memory values listed, the lower one is for Windows, and the doubled-value is for Linux. Do **not** use a Linux memory setting in Windows.
 
-The  best thing to do is to learn how to OC for yourself, per card and algo combination that you're mining, and one of our discord community members has a couple **great** videos on how to do just this!
+The best thing to do is to learn how to overclock for yourself, per card and algorithm combination that you're mining, and one of our Discord community members has a couple **great** videos on how to do just this!
 * https://www.youtube.com/watch?v=7JGcQLgV5Gw
 * https://www.youtube.com/watch?v=0F4xxcCAJVI
 
-Go watch those, and follow along.
+Watch these, and follow along *so you have an understanding* of how to overclock safely.
 
-If you'd like to monitor your card for errors while you perform your overclock, open a CMD window and send the command ```nvidia-smi dmon -s pucvmet``` and watch the appropriate columns for errors.
+If you'd like to monitor your card for errors while you perform your overclock, open a CMD window and send the command ```nvidia-smi dmon -s pucvmet``` and watch the appropriate columns for ECC errors.
 
 ## Why does my hashrate go lower when I keep increasing my --mclock value?
 It's ECC memory. If it is producing errors, it has to fix them, which costs performance.
@@ -39,19 +45,21 @@ It's ECC memory. If it is producing errors, it has to fix them, which costs perf
 It's doing exactly what it should do. You can see the errors by opening a CMD window and send the command ```nvidia-smi dmon -s pucvmet``` to verify.
 
 ## How do I add backup pools?
-Just add more pool sections (-o <pool info>) to your .bat file.
-Example: ```T-Rex.exe -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
+Just add more pool sections (-o <pool info>) to your .bat/.sh file.
+Example: ```t-rex -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+tcp://us2.ethermine.org:4444 -o stratum+tcp://eu1.ethermine.org:4444```
   
-Alternatively, you can add them in the WebUI if you are using a config file.
+Alternatively, you can add them in the WebUI if you are using a config file. [WebUI Wiki](https://github.com/trexminer/T-Rex/wiki/WebUI)
 
 ## How do I run T-Rex as an administrator?
 There are several methods, but the most common way is to right click the T-Rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator", then click OK.
+
+For Linux users you will need to use a priviledged account with ```sudo``` access or the root user. *It is highly discouraged to run any application under the root account; please use sudo if available!*
 
 ## Where can I see WebUI for my miner?
 Open http://127.0.0.1:4067/ (or [localhost](http://localhost:4067)) in a web browser on the mining machine.
 
 ## How do I see the T-Rex WebUI from another computer or phone on my local network?
-If you cannot see your T-Rex WebUI from another computer on your local networ, it is most likely due to a firewall issue on the computer doing the mining. 
+If you cannot see your T-Rex WebUI from another computer on your local network, it is most likely due to a firewall issue on the computer doing the mining. 
   
 To open the default port (TCP port 4067) T-Rex uses for incoming connections, follow the instructions below.
 
@@ -67,7 +75,7 @@ To open the default port (TCP port 4067) T-Rex uses for incoming connections, fo
 1. Click next. (leave the three boxes checked)
 1. Enter T-Rex in the Name field and click Finish.
 
-**Linux:**
+**Linux (using UFW):**
 1. From a terminal window do: ```sudo ufw allow from any to any port 4067 proto tcp``` 
 1. To verify the rule was added correctly, do: ```sudo ufw status```
 
@@ -82,7 +90,7 @@ T-Rex will run a benchmark when it's started and pick the best settings to run a
 If you experience hashrate drop between releases make sure that the miner selects same kernel. If kernel differs for the new version then set proper kernel manually by adding a --kernel parameter to the T-Rex startup arguments.
 
 ## How do I run a benchmark?
-For Ethereum, you can start T-Rex with ```T-Rex.exe -a ethash -B --benchmark-epoch 393``` and it will give you more reports on how fast it's working. This is great for tuning your cards. 
+For ETHash, you can start T-Rex with ```t-rex -a ethash -B --benchmark-epoch 393``` and it will give you more reports on how fast it's working. This is great for tuning your cards. 
 
 ## What is the difference between --lock-cclock and --cclock?
 
@@ -90,9 +98,10 @@ For Ethereum, you can start T-Rex with ```T-Rex.exe -a ethash -B --benchmark-epo
 * --cclock is an offset (+/-) from what the clock runs at normally 
 * --lock-cclock manages power to keep the core clock where you set it
 * --cclock does not manage power, so you would need to use the --pl setting to do that
+* --lock-cclock and --cclock are mutually exclusive, so disable one or the other if you are using both on a multi-card rig (ie: --lock-cclock 0,1200 --cclock 100,0)
 
 ## Windows says my GPU usage is very low, is this normal?
-Yes, T-Rex uses CUDA to work with your GPU so Windows task manager doesn't properly report useage.
+Yes, T-Rex uses CUDA to work with your GPU so Windows task manager doesn't properly report useage. [To enable](https://i.imgur.com/4wtmfmK.png)
 
 ## Will validating shares influence my hashrate?
 Yes, it can increase the number of stale shares your miner submits, especially if you have a slower network connection.
@@ -101,16 +110,20 @@ If invalid/rejected shares are a concern, you can set the --validate-shares opti
 
 If you have no invalid shares then your GPUs are stable and there is no need to use the share validation argument, since it is primarily intended to determine which of your gpus are not stable or working well. 
 
+This feature can be very useful when overclocking, though should be disabled once you verify your overclock is stable.
+
+Note: Some pools incorrectly report invalid shares for issues on their end, so don't chase a red herring if you suspect this and ask about your concern in the Discord for more information.
+
 ## What are error codes 15 and 999?
 These errors usually indicate hardware related problems (risers, power supply, cabling etc.), see more details at: https://www.cryptoprofi.info/?p=5519
 
 ## What is the "instance wasn't validated" error? 
-Right after the miner start there must be an internet connection to the developers server for miner validation. If you set firewall rules to restrict outgoing connections this can be the reason of the problem. 
+Right after the miner starts there must be an internet connection to the developers server for miner validation. If you set firewall rules to restrict outgoing connections this can be the reason of the problem. 
 
 ## Antivirus alerts (miner shows T-Rex.exe not found error in red)
 In order to protect the miner from reverse engineering attacks, the binaries are packed using a third-party software which mangles the original machine code. As a result, some antivirus engines may detect certain signatures (false positives) within the executable that are similar to those that real viruses have. 
   
-Binaries which are taken from the official site https://trex-miner.com/ are completely safe. 
+Binaries which are taken from the official site https://trex-miner.com/ and the official GitHub https://github.com/trexminer/T-Rex are completely safe. 
   
 In any case, it is advisable not to use any cryptocurrency miners on the computers where you store your sensitive data such as wallets, passwords, etc.
 
@@ -123,7 +136,7 @@ After you've downloaded the miner archive from the links in releases, it's advis
 **Windows CMD:**
 ```certutil -hashfile <PATH_TO_TREX.zip> SHA256```
 
-**Windows 7-zip:**
+**Windows 7-Zip:**
 Right click the downloaded zip file, click on "CRC SHA", then select "SHA-256" to get the checksum of the file
 
 **Linux:**
@@ -144,16 +157,18 @@ To disable it, go to Start -> Settings -> Display -> Graphics settings, and turn
 ## Why can't I save settings in the web gui?
 You probably don't have a config file in the T-Rex directory, or you forgot to launch T-Rex with the -c (--config) option.
 
+Copy-paste or rename the ```config_example``` sample file to something like ```config.json``` and add ```--config config.json``` to your batch file.
+
 ## What are the red numbers behind the R:?
 That's the percentage of rejected shares. 
   
-This is often an issue with your OC settings being too aggressive, causing the card to be unstable.
+This is often an issue with your overclock settings being too aggressive, causing the card to be unstable.
 
 ## How do I create an API Key?
 --api-generate-key does not automatically append/edit the JSON at the current moment, in the meanwhile we have to do it manually.
-1. Open a CMD window and navigate to the T-Rex directory.
-1. enter: ```T-Rex.exe --api-generate-key YourDesiredWebGuiPassword```
-1. Another CMD window will open with your API key in it. Copy this key and use it in your .bat or config file as the value for the --api-key setting.
+1. Open a CMD or terminal window and navigate to the T-Rex directory.
+1. enter: ```t-rex --api-generate-key YourDesiredWebGuiPassword```
+1. Another CMD window will open with your API key in it. Copy this key and use it in your .bat/.sh or config file as the value for the --api-key setting.
 1. Run T-Rex as usual, navigate to http://127.0.0.1:4067, enter the password you used to create the key, and enjoy!
 
 ### OR
@@ -173,21 +188,21 @@ exit
 ```
 
 ## How do I use an API Key once I've created it?
-### .bat file:
+### .bat/.sh file:
 Add ```--api-key YourLongApiKeyGoesHere``` to your arguments, save, and run. 
 ### config file:
 Put your API key in the empty quotes behind the ```"api-key" : "YourLongApiKeyGoesHere",``` setting, save, and run.
                                   
-When you load the web gui, it will ask you for your password. Enter the same password you used when you generated your api key.
+When you load the web gui, it will ask you for your password. Enter the same password you entered when you generated your api key.
 
-## How does the DEV Fee work?
+## How do DEV Fees work when single-coin mining?
 The miner automatically mines to the developers wallet for X/100 minutes, depending on what the fee is. 
-Currently, the dev fee for ETH is 1%, so the miner mines for you 99 out of 100 minutes, and for the devs that remaining minute.
+Currently, the dev fee for ETH is 1% (2% for Octopus, Autolykos2), so the miner mines for you 99 out of 100 minutes, and for the devs that remaining minute.
 
-## How do DEV FEES work when dual mining?
-Since it's only 30% of eth, we've set the fees to whatever they are for the second algo, i.e. 2% for dual with erg and cfx, and 1% for dual with rvn - the miner tells that at start up. 
+## How do DEV Fees work when dual-mining?
+Since it's only 30% of ETH, we've set the fees to whatever they are for the second algo, i.e. 2% for dual with ERG and CFX, and 1% for dual with RVN - the miner tells that at start up. 
 
-Initially the idea was to set them to 1% but that opens up a "hack" where you set LHR 10 and pretty much mine erg or cfx with 1% instead of the usual 2% set for those algos. The fees may be reviewed (= decreased) in future releases however.
+Initially the idea was to set them to 1% but that opens up a "hack" where you set LHR 10 and pretty much mine ERG or CFX with 1% instead of the usual 2% set for those algorithms. The fees may be reviewed (= decreased) in future releases however.
 
 As for the way they are taken, it's no different to single mode, T-Rex mines the dev fee to the dev wallet during dev fee sessions in dual mode too.
 
@@ -201,19 +216,21 @@ T-Rex reports what it can see, in this order of preference:
 
 Do not get confused between hotspot and memory temps. Hotspot temp is the highest temperature seen on the GPU die, and has nothing to do with memory temps.
 
-GDDR6 has no temp sensors, and therefore there is no way for any tool to read the temps, while GDDR6X does have temp sensors, so those cards will show GPU and memory temps in T-Rex.
+GDDR6 has no memory temp sensors, and therefore there is no way for any tool to read the temps, while GDDR6X does have memory temp sensors, so those cards will show GPU and memory temps in T-Rex.
+
+*Some cards with core/hotspot temperature sensors you can see in GPU-z will not expose the hotspot sensor via the native NVAPI calls; these cards will only report core temps via T-Rex due to the Nvidia driver limitations.*
+
+Note: On Linux Nvidia only exposes the core temps via the Nvidia driver. There is currently no solution for this until Nvidia exposes this for their Linux drivers.
 
 ## Why can't I see memory temperatures in T-Rex?
 You can only see things that the card exposes to the Nvidia driver, which is the fault of Nvidia, not T-Rex.
 
-T-Rex simply uses the dative NVAPI functions.
+T-Rex simply uses the native NVAPI functions.
 
-## What temps should I be running on my gpu/vram?
+## T-Rex reports very high VRAM temps, is this safe?
 That all depends on the silicon your GPU has.
 
-For cards with GDDR6/6X vram, it is generally recommended to stay below 95C on memory junction temps which is shown as the second temp value in T-Rex.
-
-For cards with GDDR6X vram, this is a good resource:
+For cards with GDDR6X VRAM (ie: 3070 Ti, 3080, 3080 Ti, 3090), it is generally recommended to stay below 95C on memory junction temps which is shown as the second temp value in T-Rex. This is a good resource for these cards:
 https://www.youtube.com/watch?v=ph4_Sr8YNXI
 
 ## How does memtweak work?
@@ -222,9 +239,9 @@ Memory tweak mode works similar to ETHlargementPill. It is supported on Pascal G
 See the readme file for instructions on how to use the --mt parameter.
 
 ## What is LHR?
-LHR (Lite Hash Rate) is something Nvidia came up with as a way to try to get graphics cards into the hands of gamers instead of miners. It is a built in limit when the card detects that it is mining ETH that limits the hashrate to 50% of the cards capability. 
+LHR (Lite Hash Rate) is something Nvidia came up with as a way to try to get graphics cards into the hands of gamers instead of miners. It is a built in limit when the card detects that it is mining ETH (or other limited algos) it will limit the hashrate to ~50% of the cards capability. 
 
-T-Rex has found a way to get around this 50% barrier, and allows mining ETH at up to 70% of the cards capability. 
+T-Rex has found a way to get around this ~50% barrier, and allows mining ETH (and other affected algos) at up to 70% of the cards capability. 
 
 ## What cards are LHR?
 All RTX cards manufactured after mid-May of 2021 are LHR cards.
@@ -262,9 +279,9 @@ ie: ```--config conf.json --api-key XXXX``` will allow you to change every value
 ## Why does --autoupdate not work?
 It only works for T-Rex 0.23.1+. There was a breaking change in 0.23.0 so auto updates was disabled for any version older than that.
        
-**IMPORTANT!** If you are running a version older than 0.23.0, be sure to remove your OC settings before updating! The cards will be numered/logged into a different order so your OCs will end up on different cards than you intend. You can reapply them after update has been completed.
+**IMPORTANT!** If you are running a version older than 0.23.0, be sure to remove your overclock settings before updating! The cards may likely be numered/logged into a different order so your overclocks will end up on different cards than you intend. You can reapply them in the correct order after update has been completed.
 
-## How do I pause a miner?
+## How do I pause a rig/miner?
 In the WebUI, click the name of the GPU at the bottom of the main page, and then click the pause icon.
 
 ### Other options:
@@ -297,10 +314,16 @@ for /f usebackq^ tokens^=4^ delims^=^" %%b in (`"curl -s http://localhost:4067/l
 pause
 ```
   
-**LINUX Bash:**
+**LINUX coreutils + cURL:**
 ```
 curl -s "http://IP_OF_RIG_HERE:4067/control?sid=`curl -s 'http://IP_OF_RIG_HERE:4067/login?password=PASSWORD_GOES_HERE'|cut -f4 -d'"'`&pause=true"
 ```
+
+For a specific card in a rig ```&devices=ID_OF_CARD```
+
+For mutliple cards in a rig ```&devices=ID_OF_CARD,ID_OF_OTHER_CARD,ETC```
+
+Append the above after ```pause=true``` / ```pause=false``` when pausing specific devices
 
 ## I'm getting a Code 6:
 -6 translates into the following NVAPI error code: ```NVAPI_NVIDIA_DEVICE_NOT_FOUND | No NVIDIA display driver, or NVIDIA GPU driving a display, was found.```
