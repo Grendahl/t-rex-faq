@@ -2,9 +2,9 @@
 
 
 ## How do I start mining?
-Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) is easy to setup/use and works in your browser and on your phone for **ETH.**
+Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) is easy to setup/use and works in your browser and on your phone.
 
-If you are mining *another coin* you will need a multi-coin or coin-specific wallet like [Exodus](https://www.exodus.com/) which has similar ease of use like Metamask.
+If you would prefer an application based wallet, you can use a wallet like [Exodus](https://www.exodus.com/) which has similar ease of use like Metamask.
 
 The next thing you will need is a pool. There are several example .bat/.sh files in your T-Rex folder that connect to reputable mining pools.
 
