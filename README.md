@@ -2,16 +2,16 @@
 
 
 ## How do I start mining?
-Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) is easy to setup/use and works in your browser and on your phone.
+Before you can mine, you need a crypto wallet. [MetaMask](https://metamask.io/) is an easy to setup/use wallet that works in your browser and on your phone.
 
-If you would prefer an application based wallet, you can use a wallet like [Exodus](https://www.exodus.com/) which has similar ease of use like Metamask.
+If you would prefer an application based wallet, you can use a wallet like [Exodus](https://www.exodus.com/) or [Atomic](https://atomicwallet.io/) which have similar ease of use like Metamask, but allow for a larger variety of coins.
 
 The next thing you will need is a pool. There are several example .bat/.sh files in your T-Rex folder that connect to reputable mining pools.
 
 The simplest way to get started is to edit one of the ethereum .bat/.sh files in the T-Rex folder and replace the developer wallet address in there with the receive address from your wallet for the currency you are mining. Then, save and run the .bat/.sh file to start T-Rex.
 
 ## What should I mine?
-Generally speaking, you should mine the most profitable coin(s) available to you at the time. Visit [WhatToMine](https://www.whattomine.com/) and plug in your numbers to see what makes sense for you.
+Generally speaking, you should mine the most profitable coin(s) available to you at the time. Visit [WhatToMine](https://www.whattomine.com/) and plug in your numbers to see what makes sense for you. The default numbers they provide for different GPUs are a good indicator, but your results may differ.
 
 ## I have been mining for hours now, but there is nothing in my wallet, is that normal?
 Yes, that is normal. Depending on your hashrate, it will take you a few days or even weeks before you hit the minimum payout amount and the pool sends it to your wallet. 
@@ -21,6 +21,9 @@ Typical minimum payout threshold values on most ETH pools is .1 ETH. Some pools 
 More pools are allowing the user to change their minimum payout amount now. For example [Flexpool](https://www.flexpool.io/) allows the user to change this once you verify the public IP of one of your miners [Screenshot](https://i.imgur.com/iogZl1b.png).
 
 ## What CUDA version should I use?
+The latest versions of T-Rex include all versions of CUDA, and will automatically select the correct version.
+
+For older versions with multiple downloads, you can choose based on this:
 * CUDA 11.x (and 12.x when released) is for 30xx series cards (3060/70/80/90)
 * CUDA 10.x (and 11.x) is for 10xx, 16xx and 20xx series cards 
 
@@ -37,7 +40,7 @@ The best thing to do is to learn how to overclock for yourself, per card and alg
 
 Watch these, and follow along *so you have an understanding* of how to overclock safely.
 
-If you'd like to monitor your card for errors while you perform your overclock, open a CMD window and send the command ```nvidia-smi dmon -s pucvmet``` and watch the appropriate columns for ECC errors.
+If you have a 30XX series card (or a different GPU that has ECC memory) and you'd like to monitor your card for errors while you perform your overclock, open a CMD window and send the command ```nvidia-smi dmon -s pucvmet``` and watch the appropriate columns for ECC errors.
 
 ## Why does my hashrate go lower when I keep increasing my --mclock value?
 It's ECC memory. If it is producing errors, it has to fix them, which costs performance.
@@ -51,7 +54,7 @@ Example: ```t-rex -a ethash -o stratum+tcp://us1.ethermine.org:4444 -o stratum+t
 Alternatively, you can add them in the WebUI if you are using a config file. [WebUI Wiki](https://github.com/trexminer/T-Rex/wiki/WebUI)
 
 ## How do I run T-Rex as an administrator?
-There are several methods, but the most common way is to right click the T-Rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator", then click OK.
+There are several methods, but the most common way is to right click the t-rex.exe file, select Properties, select the Compatibility tab, and check the Settings box for "Run this program as an administrator", then click OK.
 
 For Linux users you will need to use a priviledged account with ```sudo``` access or the root user. *It is highly discouraged to run any application under the root account; please use sudo if available!*
 
@@ -90,7 +93,14 @@ T-Rex will run a benchmark when it's started and pick the best settings to run a
 If you experience hashrate drop between releases make sure that the miner selects same kernel. If kernel differs for the new version then set proper kernel manually by adding a --kernel parameter to the T-Rex startup arguments.
 
 ## How do I run a benchmark?
-For ETHash, you can start T-Rex with ```t-rex -a ethash -B --benchmark-epoch 393``` and it will give you more reports on how fast it's working. This is great for tuning your cards. 
+For ETHash, you can start T-Rex with ```t-rex -a ethash --benchmark --benchmark-epoch 446``` and it will give you more reports on how fast it's working. This is great for tuning your cards. 
+  
+Benchmark values for some other algos:
+* kawpow: ```--benchmark --benchmark-block 1970248```
+* autolykos2: ```--benchmark --benchmark-block 596150```
+* conflux: ```--benchmark --benchmark-epoch 50```
+  
+To make it easier to find the average with fluctuating hashrates, you can add ```--hashrate-avr 300``` which will smooth out the hashrates after about five minutes based on the total average.  
 
 ## What is the difference between --lock-cclock and --cclock?
 
@@ -102,9 +112,11 @@ For ETHash, you can start T-Rex with ```t-rex -a ethash -B --benchmark-epoch 393
 
 ## Windows says my GPU usage is very low, is this normal?
 Yes, T-Rex uses CUDA to work with your GPU so Windows task manager doesn't properly report useage. [To enable](https://i.imgur.com/4wtmfmK.png)
+  
+If you can't find CUDA as an option in the drop down menu you need to disable "Hardware-accelerated GPU Scheduling" in your Windows settings. To disable it, go to Start > Settings > Display > Graphics Settings, and turn it off.
 
 ## Will validating shares influence my hashrate?
-Yes, it can increase the number of stale shares your miner submits, especially if you have a slower network connection.
+While it won't influence your hashrate, it can increase the number of stale shares your miner submits, which will impact your profit... especially if you have a slower network connection.
   
 If invalid/rejected shares are a concern, you can set the --validate-shares option and look at the stats for few days.
 
@@ -121,6 +133,8 @@ These errors usually indicate hardware related problems (risers, power supply, c
 Right after the miner starts there must be an internet connection to the developers server for miner validation. If you set firewall rules to restrict outgoing connections this can be the reason of the problem. 
 
 ## Antivirus alerts (miner shows T-Rex.exe not found error in red)
+**Always verify authenticity of your download!** (see next question in the FAQ)
+  
 In order to protect the miner from reverse engineering attacks, the binaries are packed using a third-party software which mangles the original machine code. As a result, some antivirus engines may detect certain signatures (false positives) within the executable that are similar to those that real viruses have. 
   
 Binaries which are taken from the official site https://trex-miner.com/ and the official GitHub https://github.com/trexminer/T-Rex are completely safe. 
