@@ -363,3 +363,16 @@ A few examples:
 **Note:** 
 There are no short names in JSON, you need to use the full name for one-letter parameters like -i ("intensity"), -N ("hashrate-avr") etc.
        
+## I'm getting a "No connection" error, but my network connection is fine
+This usually happens when Windows Firewall blocks network connections initiated by T-Rex. To allow T-Rex though the firewall follow these steps:
+1. Press Start
+1. Type ```firewall.cpl``` and press Enter
+1. Select "Allow an app or feature through Windows Defender Firewall" on the left side of the window
+1. Click "Change settings"
+1. Click the "Allow another app..." button
+1. Click the "Browse..." button
+1. Browse to the location of your t-rex.exe
+1. Highlight t-rex.exe and press the "Open" button
+1. Click "Add"
+1. Click "OK"
+1. Reboot
